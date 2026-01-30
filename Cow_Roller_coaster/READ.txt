@@ -1,11 +1,11 @@
-### Computer Graphics PA2
-### 2019010600 조준희
+# Computer Graphics PA2
+# 2019010600 조준희
 
-### To run this file
+# To run this file
 1. Please decompress cowrollercoaster.zip
 2. Run SimpleScene.py
 
-### What I wrote
+# What I wrote
 <Import>
 --------------------------------------------
 1. math
