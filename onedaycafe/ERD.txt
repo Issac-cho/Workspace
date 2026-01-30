@@ -1,0 +1,122 @@
+erDiagram
+    MENU {
+        int menu_id PK "AUTO_INCREMENT"
+        varchar name "메뉴이름"
+        int price "가격"
+        int coupon_count "쿠폰개수"
+        int group_num "그룹(1~N)"
+        varchar category "카테고리"
+        tinyint is_soldout "품절여부 (0:판매, 1:품절)"
+        tinyint is_render "Render (1:표시, 0:삭제)"
+    }
+
+    TRANSACTION_LOG {
+        int trsc_id PK "AUTO_INCREMENT (주문번호)"
+        int table_no "테이블 번호"
+        varchar payment_method "지불방식 (CASH/COUPON)"
+        datetime order_time "주문시각"
+    }
+
+    ORDER_ITEM {
+        int order_id PK "AUTO_INCREMENT"
+        int trsc_id FK "TRANSACTION_LOG 참조"
+        int menu_id FK "MENU 참조"
+        int quantity "개수"
+        tinyint status "요리완성여부 (0 = none , 1 = be cooked , 2 = be served(complete))"
+    }
+
+    TRANSACTION_LOG ||--|{ ORDER_ITEM : "contains"
+    MENU ||--|{ ORDER_ITEM : "included in"
+
+
+    OneDayCafe/
+    ├── src/
+    │   └── main/
+    │       ├── java/
+    │       │   └── com/onedaycafe/
+    │       │       ├── config/
+    │       │       │   └── DBConnection.java  <-- DB 접속 정보
+    │       │       ├── controller/            <-- Servlet (API & Page Routing)
+    │       │       │   ├── PageController.java (GET 페이지 반환)
+    │       │       │   ├── OrderApiController.java (POST 주문, GET 조회)
+    │       │       │   └── ManagementApiController.java (메뉴/조리/서빙 상태변경)
+    │       │       ├── dao/                   <-- DB CRUD
+    │       │       │   ├── MenuDAO.java
+    │       │       │   └── OrderDAO.java
+    │       │       └── dto/                   <-- 데이터 객체
+    │       │           ├── MenuDTO.java
+    │       │           └── TrscDTO.java
+    │       ├── resources/
+    │       │   └── db.properties              <-- (선택) DB 설정 분리 시
+    │       └── webapp/
+    │           ├── WEB-INF/
+    │           │   ├── web.xml                <-- 서블릿 매핑
+    │           │   └── views/                 <-- JSP 파일 (HTML 템플릿)
+    │           │       ├── order.jsp
+    │           │       ├── kitchen.jsp
+    │           │       ├── central.jsp
+    │           │       └── admin.jsp
+    │           └── static/                    <-- 정적 리소스
+    │               ├── css/
+    │               └── js/
+
+
+    데이터 표준 json
+{
+    trsc_id : 0011,
+    table_no : 7,
+    payment : cash,
+    order_time : 오후 2:59 2026-01-05,
+    order : [
+    	{
+            order_id : 1,
+            menu_id : 3,
+            quantity : 2,
+            status : 0
+    	},
+    	{
+            order_id : 2,
+            menu_id : 4,
+            quantity : 1,
+            status : 0
+    	}
+    ]
+}
+
+
+    입력 json
+{
+    table_no : 7,
+    payment : cash,
+    order_time : 오후 2:59 2026-01-05,
+    order : [
+    	{
+            menu_id : 3,
+            quantity : 2,
+    	},
+    	{
+            menu_id : 4,
+            quantity : 1,
+    	}
+    ]
+}
+
+    출력 json
+    trsc_id : 0011
+    table_no : 7
+    order_time : 오후 2:59 2026-01-05
+    order_id : 1
+    menu_id : 3
+    quantity : 2
+    status : 0
+
+    trsc_id : 0011
+    table_no : 7
+    order_time : 오후 2:59 2026-01-05
+    order_id : 2
+    menu_id : 4
+    quantity : 1
+    status : 0
+
+
+    주문   음식
