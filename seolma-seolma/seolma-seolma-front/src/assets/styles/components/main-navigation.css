@@ -1,0 +1,54 @@
+/* 메인 네비게이션 스타일 */
+header {
+    width: 100%;
+    padding: 15px 40px;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.top-nav {
+    display: flex;
+    align-items: center;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #5a4e4e;
+    font-weight: 600;
+    margin-left: 25px;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+.top-nav a:hover {
+    color: #c91b1b;
+}
+
+.logout-btn {
+    background: none;
+    border: none;
+    color: #5a4e4e;
+    font-weight: 600;
+    margin-left: 25px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.logout-btn:hover {
+    color: #c91b1b;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    .top-nav a,
+    .logout-btn {
+        margin-left: 15px;
+        font-size: 14px;
+    }
+}

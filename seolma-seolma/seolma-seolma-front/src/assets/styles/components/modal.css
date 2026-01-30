@@ -1,0 +1,154 @@
+/* 모달 공통 스타일 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: auto;
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px 16px 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.modal-close:hover {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.modal-content {
+    padding: 0 24px 24px;
+}
+
+/* 트랜지션 */
+.modal-enter-active,
+.modal-leave-active {
+    transition: opacity 0.3s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+    opacity: 0;
+}
+
+.modal-enter-active .modal-container,
+.modal-leave-active .modal-container {
+    transition: transform 0.3s ease;
+}
+
+.modal-enter-from .modal-container,
+.modal-leave-to .modal-container {
+    transform: scale(0.9);
+}
+
+/* 개별 모달 스타일 */
+.alert-modal,
+.confirm-modal,
+.error-modal,
+.success-modal {
+    text-align: center;
+    padding: 24px;
+    min-width: 320px;
+}
+
+.modal-icon {
+    margin-bottom: 16px;
+}
+
+.modal-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #1f2937;
+}
+
+.modal-message {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.modal-actions .btn {
+    padding: 8px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modal-actions .btn-primary {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.modal-actions .btn-primary:hover {
+    background-color: #2563eb;
+}
+
+.modal-actions .btn-secondary {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.modal-actions .btn-secondary:hover {
+    background-color: #e5e7eb;
+}
+
+.modal-actions .btn-danger {
+    background-color: #ef4444;
+    color: white;
+}
+
+.modal-actions .btn-danger:hover {
+    background-color: #dc2626;
+}
+
+.modal-actions .btn-success {
+    background-color: #10b981;
+    color: white;
+}
+
+.modal-actions .btn-success:hover {
+    background-color: #059669;
+}

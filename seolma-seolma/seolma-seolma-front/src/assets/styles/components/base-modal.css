@@ -1,0 +1,75 @@
+/* BaseModal 컴포넌트 스타일 */
+.modal-base {
+    text-align: center;
+    padding: 24px;
+    min-width: 320px;
+}
+
+.modal-icon {
+    margin-bottom: 16px;
+}
+
+.modal-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #1f2937;
+}
+
+.modal-message {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.modal-btn--primary {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.modal-btn--primary:hover {
+    background-color: #2563eb;
+}
+
+.modal-btn--secondary {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.modal-btn--secondary:hover {
+    background-color: #e5e7eb;
+}
+
+.modal-btn--danger {
+    background-color: #ef4444;
+    color: white;
+}
+
+.modal-btn--danger:hover {
+    background-color: #dc2626;
+}
+
+.modal-btn--success {
+    background-color: #10b981;
+    color: white;
+}
+
+.modal-btn--success:hover {
+    background-color: #059669;
+}
+
+.modal-btn--warning {
+    background-color: #f59e0b;
+    color: white;
+}
+
+.modal-btn--warning:hover {
+    background-color: #d97706;
+}

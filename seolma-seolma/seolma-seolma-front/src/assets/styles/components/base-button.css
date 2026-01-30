@@ -1,0 +1,111 @@
+/* BaseButton 컴포넌트 스타일 */
+.base-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 크기 */
+.base-button--small {
+    padding: 6px 12px;
+    font-size: 12px;
+    min-height: 28px;
+}
+
+.base-button--medium {
+    padding: 8px 16px;
+    font-size: 14px;
+    min-height: 36px;
+}
+
+.base-button--large {
+    padding: 12px 24px;
+    font-size: 16px;
+    min-height: 44px;
+}
+
+/* 변형 */
+.base-button--primary {
+    background-color: #a67c52;
+    color: white;
+}
+
+.base-button--primary:hover:not(.base-button--disabled) {
+    background-color: #8b6239;
+}
+
+.base-button--secondary {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.base-button--secondary:hover:not(.base-button--disabled) {
+    background-color: #e5e7eb;
+}
+
+.base-button--danger {
+    background-color: #ef4444;
+    color: white;
+}
+
+.base-button--danger:hover:not(.base-button--disabled) {
+    background-color: #dc2626;
+}
+
+.base-button--success {
+    background-color: #10b981;
+    color: white;
+}
+
+.base-button--success:hover:not(.base-button--disabled) {
+    background-color: #059669;
+}
+
+.base-button--outline {
+    background-color: transparent;
+    color: #a67c52;
+    border: 1px solid #a67c52;
+}
+
+.base-button--outline:hover:not(.base-button--disabled) {
+    background-color: #a67c52;
+    color: white;
+}
+
+/* 상태 */
+.base-button--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.base-button--loading {
+    cursor: wait;
+}
+
+.base-button--block {
+    width: 100%;
+}
+
+/* 로딩 스피너 */
+.base-button .loading-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

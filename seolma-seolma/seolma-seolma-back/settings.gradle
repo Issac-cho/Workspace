@@ -1,0 +1,8 @@
+rootProject.name = 'ecommerce-msa'
+
+include 'common-lib'
+include 'user-service'
+include 'product-service'
+include 'coupon-service'
+include 'order-service'
+include 'general-service'
